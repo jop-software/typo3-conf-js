@@ -73,7 +73,6 @@
       "rm -rf .github",
       "rm phpcs.xml",
       "rm phpstan.neon",
-      "rm composer.lock",
       "rm .gitignore"
     ]
   }
