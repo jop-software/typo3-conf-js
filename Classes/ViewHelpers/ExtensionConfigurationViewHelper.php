@@ -13,7 +13,7 @@ class ExtensionConfigurationViewHelper extends AbstractViewHelper
 
     protected $escapeOutput = false;
 
-    public function initializeArguments()
+    public function initializeArguments(): void
     {
         $this->registerArgument(
             "extKey",
@@ -23,12 +23,15 @@ class ExtensionConfigurationViewHelper extends AbstractViewHelper
         );
     }
 
+    /**
+     * @return array<mixed>|null
+     */
     private function loadExtensionConfigurationFor(string $extKey): ?array
     {
         $extensionConfiguration = GeneralUtility::makeInstance(ExtensionConfiguration::class);
 
         try {
-            $conf = $extensionConfiguration->get($extKey);
+            $conf = (array)$extensionConfiguration->get($extKey);
         } catch (\Exception $exception) {
             // TODO: Logging
             $conf = null;
@@ -48,6 +51,11 @@ class ExtensionConfigurationViewHelper extends AbstractViewHelper
         $extConf = $this->loadExtensionConfigurationFor($extKey);
         $jsObject = json_encode($extConf);
 
-        return "<script>window.extConf = window.extConf || new Map();window.extConf.set('$extKey', JSON.parse('{$jsObject}'))</script>";
+        return <<<EOF
+<script>
+window.extConf = window.extConf || new Map();
+window.extConf.set('$extKey', JSON.parse('{$jsObject}'));
+</script>
+EOF;
     }
 }
