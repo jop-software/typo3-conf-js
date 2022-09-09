@@ -1,0 +1,23 @@
+{
+	"name": "jop-software/testing-site-package",
+	"type": "typo3-cms-extension",
+	"description": "TYPO3 Demo extension",
+	"license": "proprietary",
+	"authors": [
+		{
+			"name": "Johannes Przymusinski",
+			"email": "johannes.przymusinski@jop-software.de",
+			"homepage": "https://jop-software.de",
+			"role": "Developer"
+		}
+	],
+	"extra": {
+		"typo3/cms": {
+			"extension-key": "testing_site_package"
+		}
+	},
+	"require": {
+		"typo3/cms-core": "^11.5"
+	},
+	"minimum-stability": "stable"
+}

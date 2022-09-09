@@ -1,0 +1,19 @@
+# cat=Category0; type=string; label=Category 0
+cat-0 =
+
+
+cat-1 {
+    # cat=Category1; type=string; label=Category 1.1
+    cat-1-1 =
+
+    # cat=Category1; type=string; label=Category 1.2
+    cat-1-2 =
+}
+
+cat-2 {
+    # cat=Category2; type=string; label=Category 2.1
+    cat-2-1 =
+
+    # cat=Category2; type=string; label=Category 2.2
+    cat-2-2 =
+}

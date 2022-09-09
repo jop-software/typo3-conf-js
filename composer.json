@@ -33,7 +33,9 @@
     "rector/rector": "0.13.3",
     "saschaegerer/phpstan-typo3": "^1.0",
     "squizlabs/php_codesniffer": "^3.6",
-    "typo3/minimal": "^v11.5.0"
+    "typo3/minimal": "^v11.5.0",
+    "typo3/cms-tstemplate": "^11.5",
+    "jop-software/testing-site-package": "@dev"
   },
   "config": {
     "bin-dir": ".build/bin",
@@ -59,6 +61,12 @@
     }
   },
   "prefer-stable": true,
+  "repositories": {
+    "tests": {
+      "type": "path",
+      "url": "Tests/Packages/*"
+    }
+  },
   "scripts": {
     "prepare-release": [
       "rm -rf .ddev",
