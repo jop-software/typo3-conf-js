@@ -36,6 +36,9 @@ And access the Configuration in JavaScript later
 let configuration = window.extConf.get("my_ext_key");
 ```
 
+You can also find an extension, implementing this behaviour for testing in
+[`./Tests/Packages/testing-site-package`](./Tests/Packages/testing-site-package).
+
 ## Security
 
 Many times the extension configuration of an extension does contain secret information - like API Keys - that should not
