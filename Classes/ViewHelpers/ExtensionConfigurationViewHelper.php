@@ -11,6 +11,8 @@ class ExtensionConfigurationViewHelper extends AbstractViewHelper
 {
     use CompileWithRenderStatic;
 
+    protected $escapeOutput = false;
+
     public function initializeArguments()
     {
         $this->registerArgument(
