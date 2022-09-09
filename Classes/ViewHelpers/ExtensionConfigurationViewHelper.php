@@ -16,7 +16,8 @@ class ExtensionConfigurationViewHelper extends AbstractViewHelper
         $this->registerArgument(
             "extKey",
             "string",
-            "Extension key of the extension you want to load the configuration form"
+            "Extension key of the extension you want to load the configuration form",
+            true,
         );
     }
 
