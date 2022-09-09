@@ -48,6 +48,6 @@ class ExtensionConfigurationViewHelper extends AbstractViewHelper
         $extConf = $this->loadExtensionConfigurationFor($extKey);
         $jsObject = json_encode($extConf);
 
-        return "<script>(window.extConf = window.extConf || []).push('{$extKey}', JSON.parse({$jsObject}))</script>";
+        return "<script>window.extConf = window.extConf || new Map();window.extConf.set('$extKey', JSON.parse('{$jsObject}'))</script>";
     }
 }
