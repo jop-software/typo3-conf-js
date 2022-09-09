@@ -14,7 +14,7 @@ class ExtensionConfigurationViewHelper extends AbstractViewHelper
     public function initializeArguments()
     {
         $this->registerArgument(
-            "extensionKey",
+            "extKey",
             "string",
             "Extension key of the extension you want to load the configuration form"
         );
@@ -36,7 +36,7 @@ class ExtensionConfigurationViewHelper extends AbstractViewHelper
 
     public function render(): string
     {
-        $extKey = $this->arguments["extensionKey"] ?? null;
+        $extKey = $this->arguments["extKey"] ?? null;
         if (!$extKey) {
             // TODO: Logging
             return "";
