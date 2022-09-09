@@ -1,0 +1,72 @@
+{
+  "name": "jop-software/typo3-conf-js",
+  "type": "typo3-cms-extension",
+  "description": "TYPO3 view helper to load extension configuration in JavaScript",
+  "version": "v0.1.0",
+  "keywords": [
+    "TYPO3",
+    "TYPO3 CMS",
+    "TYPO3 Fluid",
+    "TYPO3 ViewHelper",
+    "TYPO3 Frontend",
+    "Extension configuration"
+  ],
+  "homepage": "https://jop-software.de",
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "Johannes Przymusinski",
+      "email": "johannes.przymusinski@jop-software.de",
+      "homepage": "https://jop-software.de",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": "^7.4 || ^8.0",
+    "ext-json": "*",
+    "typo3/cms-core": "^11.5",
+    "typo3fluid/fluid": "^2.7"
+  },
+  "require-dev": {
+    "phpstan/extension-installer": "^1.1",
+    "phpstan/phpstan": "^1.0",
+    "rector/rector": "0.13.3",
+    "saschaegerer/phpstan-typo3": "^1.0",
+    "squizlabs/php_codesniffer": "^3.6",
+    "typo3/minimal": "^v11.5.0"
+  },
+  "config": {
+    "bin-dir": ".build/bin",
+    "optimize-autoloader": true,
+    "sort-packages": true,
+    "vendor-dir": ".build/vendor",
+    "allow-plugins": {
+      "typo3/cms-composer-installers": true,
+      "typo3/class-alias-loader": true,
+      "phpstan/extension-installer": true
+    }
+  },
+  "extra": {
+    "typo3/cms": {
+      "app-dir": ".build",
+      "extension-key": "conf_js",
+      "web-dir": ".build/public"
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "JopSoftware\\TYPO3\\ConfJs\\": "Classes"
+    }
+  },
+  "prefer-stable": true,
+  "scripts": {
+    "prepare-release": [
+      "rm -rf .ddev",
+      "rm -rf .github",
+      "rm phpcs.xml",
+      "rm phpstan.neon",
+      "rm composer.lock",
+      "rm .gitignore"
+    ]
+  }
+}

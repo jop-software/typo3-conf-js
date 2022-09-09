@@ -1,0 +1,79 @@
+name: CI - Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_call:
+
+jobs:
+
+  lint:
+    name: "Lint PHP-Code"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v2
+      - name: "Install PHP"
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "${{ matrix.php-version }}"
+          coverage: none
+          tools: composer:v2
+      - name: "Cache dependencies installed with composer"
+        uses: actions/cache@v1
+        with:
+          key: "php${{ matrix.php-version }}-composer-${{ hashFiles('**/composer.json') }}"
+          path: ~/.cache/composer
+          restore-keys: "php${{ matrix.php-version }}-composer-\n"
+      - name: "Install Composer dependencies"
+        run: "composer install --no-progress"
+      - name: "Run PHP_CodeSniffer"
+        run: "composer ci:sniff"
+      - name: "Run PHPStan"
+        run: "composer ci:phpstan"
+
+      - name: "Run Rector"
+        run: '.build/bin/rector process --dry-run'
+
+    strategy:
+      fail-fast: false
+      matrix:
+        php-version:
+          - 7.4
+          - 8.0
+          - 8.1
+
+  test:
+    name: "Test PHP-Code"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v2
+      - name: "Install PHP"
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "${{ matrix.php-version }}"
+          coverage: none
+          tools: composer:v2
+      - name: "Cache dependencies installed with composer"
+        uses: actions/cache@v1
+        with:
+          key: "php${{ matrix.php-version }}-composer-${{ hashFiles('**/composer.json') }}"
+          path: ~/.cache/composer
+          restore-keys: "php${{ matrix.php-version }}-composer-\n"
+      - name: "Install Composer dependencies"
+        run: "composer install --no-progress"
+      - name: "Run Test Suite"
+        run: "composer php:test"
+
+    strategy:
+      fail-fast: false
+      matrix:
+        php-version:
+          - 7.4
+          - 8.0
+          - 8.1

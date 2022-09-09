@@ -1,0 +1,20 @@
+### >jop-software/editors
+/.idea
+/.vscode
+### <jop-software/editors
+
+### >jop-software/local-development
+/.build
+### <jop-software/local-development
+
+### >jop-software/composer
+/vendor
+### <jop-software/composer
+
+### >jop-software/composer-package
+/composer.lock
+### <jop-software/composer-package
+
+### >jop-software/ci-tooling
+.phpcs-cache
+### <jop-software/ci-tooling
