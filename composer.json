@@ -22,19 +22,18 @@
     }
   ],
   "require": {
-    "php": "^7.4 || ^8.0",
+    "php": ">=8.1",
     "ext-json": "*",
-    "typo3/cms-core": "^11.5",
+    "typo3/cms-core": "^11.5 || ^12.0",
     "typo3fluid/fluid": "^2.7"
   },
   "require-dev": {
     "phpstan/extension-installer": "^1.1",
     "phpstan/phpstan": "^1.0",
     "rector/rector": "0.13.3",
-    "saschaegerer/phpstan-typo3": "^1.0",
     "squizlabs/php_codesniffer": "^3.6",
-    "typo3/minimal": "^v11.5.0",
-    "typo3/cms-tstemplate": "^11.5",
+    "typo3/minimal": "^v11.5 || ^v12.0",
+    "typo3/cms-tstemplate": "^11.5 || ^12.0",
     "jop-software/testing-site-package": "@dev"
   },
   "config": {
@@ -50,7 +49,6 @@
   },
   "extra": {
     "typo3/cms": {
-      "app-dir": ".build",
       "extension-key": "conf_js",
       "web-dir": ".build/public"
     }
