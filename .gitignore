@@ -18,3 +18,8 @@
 ### >jop-software/ci-tooling
 .phpcs-cache
 ### <jop-software/ci-tooling
+
+### >jop-software/typo3-extension
+/var
+/config
+### <jop-software/typo3-extension

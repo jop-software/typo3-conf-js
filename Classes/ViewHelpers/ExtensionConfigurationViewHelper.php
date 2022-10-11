@@ -28,6 +28,7 @@ class ExtensionConfigurationViewHelper extends AbstractViewHelper
      */
     private function loadExtensionConfigurationFor(string $extKey): ?array
     {
+        /** @var ExtensionConfiguration $extensionConfiguration */
         $extensionConfiguration = GeneralUtility::makeInstance(ExtensionConfiguration::class);
 
         try {
