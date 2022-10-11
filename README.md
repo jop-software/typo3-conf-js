@@ -51,7 +51,10 @@ There already exists an issue ([#4](https://github.com/jop-software/typo3-conf-j
 of the extension configuration, but this is not implemented at the moment.
 
 ## Supported TYPO3 Versions
-The extension is only officially available and released for TYPO3 11.
+| Extension Version | TYPO3 Version | PHP-Version |
+|-------------------|---------------|-------------|
+| 1.x               | 11.5          | 7.4 - 8.0   |
+| 2.x               | 12.0          | 8.1         |
 
 ## Local Development
 We use [DDEV](https://ddev.com) for local development.
