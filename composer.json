@@ -2,7 +2,7 @@
   "name": "jop-software/typo3-conf-js",
   "type": "typo3-cms-extension",
   "description": "TYPO3 view helper to load extension configuration in JavaScript",
-  "version": "v2.0.1",
+  "version": "v2.0.2",
   "keywords": [
     "TYPO3",
     "TYPO3 CMS",
